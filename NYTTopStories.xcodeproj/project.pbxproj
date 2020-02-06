@@ -13,6 +13,9 @@
 		635C6DC823EC6B5A00AA60E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 635C6DC623EC6B5A00AA60E7 /* LaunchScreen.storyboard */; };
 		635C6DD323EC6B5B00AA60E7 /* NYTTopStoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DD223EC6B5B00AA60E7 /* NYTTopStoriesTests.swift */; };
 		635C6DDE23EC6C3800AA60E7 /* TopStoriesTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DDD23EC6C3800AA60E7 /* TopStoriesTabController.swift */; };
+		635C6DE223EC6E5200AA60E7 /* NewsFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DE123EC6E5200AA60E7 /* NewsFeedVC.swift */; };
+		635C6DE423EC6E6E00AA60E7 /* SavedArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DE323EC6E6E00AA60E7 /* SavedArticleVC.swift */; };
+		635C6DE623EC6E8C00AA60E7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DE523EC6E8C00AA60E7 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		635C6DD223EC6B5B00AA60E7 /* NYTTopStoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTTopStoriesTests.swift; sourceTree = "<group>"; };
 		635C6DD423EC6B5B00AA60E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		635C6DDD23EC6C3800AA60E7 /* TopStoriesTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesTabController.swift; sourceTree = "<group>"; };
+		635C6DE123EC6E5200AA60E7 /* NewsFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedVC.swift; sourceTree = "<group>"; };
+		635C6DE323EC6E6E00AA60E7 /* SavedArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleVC.swift; sourceTree = "<group>"; };
+		635C6DE523EC6E8C00AA60E7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +83,7 @@
 		635C6DBA23EC6B5700AA60E7 /* NYTTopStories */ = {
 			isa = PBXGroup;
 			children = (
-				635C6DBB23EC6B5700AA60E7 /* AppDelegate.swift */,
-				635C6DBD23EC6B5700AA60E7 /* SceneDelegate.swift */,
-				635C6DDD23EC6C3800AA60E7 /* TopStoriesTabController.swift */,
-				635C6DC423EC6B5A00AA60E7 /* Assets.xcassets */,
-				635C6DC623EC6B5A00AA60E7 /* LaunchScreen.storyboard */,
+				635C6DDF23EC6E0E00AA60E7 /* Supporting Files */,
 				635C6DC923EC6B5A00AA60E7 /* Info.plist */,
 			);
 			path = NYTTopStories;
@@ -94,6 +96,29 @@
 				635C6DD423EC6B5B00AA60E7 /* Info.plist */,
 			);
 			path = NYTTopStoriesTests;
+			sourceTree = "<group>";
+		};
+		635C6DDF23EC6E0E00AA60E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				635C6DBB23EC6B5700AA60E7 /* AppDelegate.swift */,
+				635C6DBD23EC6B5700AA60E7 /* SceneDelegate.swift */,
+				635C6DC423EC6B5A00AA60E7 /* Assets.xcassets */,
+				635C6DC623EC6B5A00AA60E7 /* LaunchScreen.storyboard */,
+				635C6DE023EC6E2700AA60E7 /* Controllers */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		635C6DE023EC6E2700AA60E7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				635C6DDD23EC6C3800AA60E7 /* TopStoriesTabController.swift */,
+				635C6DE123EC6E5200AA60E7 /* NewsFeedVC.swift */,
+				635C6DE323EC6E6E00AA60E7 /* SavedArticleVC.swift */,
+				635C6DE523EC6E8C00AA60E7 /* SettingsVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +222,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				635C6DBC23EC6B5700AA60E7 /* AppDelegate.swift in Sources */,
+				635C6DE423EC6E6E00AA60E7 /* SavedArticleVC.swift in Sources */,
+				635C6DE223EC6E5200AA60E7 /* NewsFeedVC.swift in Sources */,
 				635C6DDE23EC6C3800AA60E7 /* TopStoriesTabController.swift in Sources */,
 				635C6DBE23EC6B5700AA60E7 /* SceneDelegate.swift in Sources */,
+				635C6DE623EC6E8C00AA60E7 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
