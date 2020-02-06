@@ -19,7 +19,7 @@ class NewsFeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         
         newsFeedView.collecitonView.delegate = self
         newsFeedView.collecitonView.dataSource = self
@@ -39,7 +39,7 @@ extension NewsFeedVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath)
-        cell.backgroundColor = .white
+        cell.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         return cell
     }
     

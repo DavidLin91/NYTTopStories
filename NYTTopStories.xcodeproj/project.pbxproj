@@ -17,6 +17,7 @@
 		635C6DE423EC6E6E00AA60E7 /* SavedArticleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DE323EC6E6E00AA60E7 /* SavedArticleVC.swift */; };
 		635C6DE623EC6E8C00AA60E7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DE523EC6E8C00AA60E7 /* SettingsVC.swift */; };
 		635C6DE923EC715B00AA60E7 /* NewFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DE823EC715B00AA60E7 /* NewFeedView.swift */; };
+		635C6DEB23EC851000AA60E7 /* TopStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DEA23EC851000AA60E7 /* TopStory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		635C6DE323EC6E6E00AA60E7 /* SavedArticleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleVC.swift; sourceTree = "<group>"; };
 		635C6DE523EC6E8C00AA60E7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		635C6DE823EC715B00AA60E7 /* NewFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedView.swift; sourceTree = "<group>"; };
+		635C6DEA23EC851000AA60E7 /* TopStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				635C6DE723EC714200AA60E7 /* Views */,
 				635C6DDF23EC6E0E00AA60E7 /* Supporting Files */,
 				635C6DC923EC6B5A00AA60E7 /* Info.plist */,
+				635C6DEA23EC851000AA60E7 /* TopStory.swift */,
 			);
 			path = NYTTopStories;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				635C6DE223EC6E5200AA60E7 /* NewsFeedVC.swift in Sources */,
 				635C6DDE23EC6C3800AA60E7 /* TopStoriesTabController.swift in Sources */,
 				635C6DE923EC715B00AA60E7 /* NewFeedView.swift in Sources */,
+				635C6DEB23EC851000AA60E7 /* TopStory.swift in Sources */,
 				635C6DBE23EC6B5700AA60E7 /* SceneDelegate.swift in Sources */,
 				635C6DE623EC6E8C00AA60E7 /* SettingsVC.swift in Sources */,
 			);
