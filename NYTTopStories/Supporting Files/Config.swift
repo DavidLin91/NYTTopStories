@@ -1,5 +1,5 @@
 //
-//  NYTopStoriesAPIClient.swift
+//  Config.swift
 //  NYTTopStories
 //
 //  Created by David Lin on 2/6/20.

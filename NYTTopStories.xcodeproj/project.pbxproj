@@ -20,6 +20,7 @@
 		635C6DEB23EC851000AA60E7 /* TopStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DEA23EC851000AA60E7 /* TopStory.swift */; };
 		635C6DED23EC863C00AA60E7 /* NYTopStoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C6DEC23EC863C00AA60E7 /* NYTopStoriesAPIClient.swift */; };
 		635C6DF023EC867500AA60E7 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 635C6DEF23EC867500AA60E7 /* ImageKit */; };
+		6392D22E23EC8BF800D859B7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6392D22D23EC8BF800D859B7 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		635C6DE823EC715B00AA60E7 /* NewFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedView.swift; sourceTree = "<group>"; };
 		635C6DEA23EC851000AA60E7 /* TopStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStory.swift; sourceTree = "<group>"; };
 		635C6DEC23EC863C00AA60E7 /* NYTopStoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTopStoriesAPIClient.swift; sourceTree = "<group>"; };
+		6392D22D23EC8BF800D859B7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +93,11 @@
 		635C6DBA23EC6B5700AA60E7 /* NYTTopStories */ = {
 			isa = PBXGroup;
 			children = (
+				635C6DF223EC87CC00AA60E7 /* Network Services */,
 				635C6DF123EC86B100AA60E7 /* Models */,
-				635C6DEC23EC863C00AA60E7 /* NYTopStoriesAPIClient.swift */,
 				635C6DE723EC714200AA60E7 /* Views */,
 				635C6DDF23EC6E0E00AA60E7 /* Supporting Files */,
 				635C6DC923EC6B5A00AA60E7 /* Info.plist */,
-				635C6DEA23EC851000AA60E7 /* TopStory.swift */,
 			);
 			path = NYTTopStories;
 			sourceTree = "<group>";
@@ -115,6 +116,7 @@
 			children = (
 				635C6DBB23EC6B5700AA60E7 /* AppDelegate.swift */,
 				635C6DBD23EC6B5700AA60E7 /* SceneDelegate.swift */,
+				6392D22D23EC8BF800D859B7 /* Config.swift */,
 				635C6DC423EC6B5A00AA60E7 /* Assets.xcassets */,
 				635C6DC623EC6B5A00AA60E7 /* LaunchScreen.storyboard */,
 				635C6DE023EC6E2700AA60E7 /* Controllers */,
@@ -144,8 +146,17 @@
 		635C6DF123EC86B100AA60E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				635C6DEA23EC851000AA60E7 /* TopStory.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		635C6DF223EC87CC00AA60E7 /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+				635C6DEC23EC863C00AA60E7 /* NYTopStoriesAPIClient.swift */,
+			);
+			path = "Network Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				635C6DE923EC715B00AA60E7 /* NewFeedView.swift in Sources */,
 				635C6DEB23EC851000AA60E7 /* TopStory.swift in Sources */,
 				635C6DBE23EC6B5700AA60E7 /* SceneDelegate.swift in Sources */,
+				6392D22E23EC8BF800D859B7 /* Config.swift in Sources */,
 				635C6DE623EC6E8C00AA60E7 /* SettingsVC.swift in Sources */,
 				635C6DED23EC863C00AA60E7 /* NYTopStoriesAPIClient.swift in Sources */,
 			);
