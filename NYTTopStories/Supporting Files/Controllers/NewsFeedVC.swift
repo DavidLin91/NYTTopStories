@@ -26,7 +26,7 @@ class NewsFeedVC: UIViewController {
         
         
         // register a collection view cell for UICollectionViewDataSource
-        newsFeedView.collecitonView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "articleCell")
+        newsFeedView.collecitonView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell")
     }
     
     private func fetchStories(for section: String = "Technology") {
