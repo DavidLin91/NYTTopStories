@@ -30,6 +30,9 @@ class NewsFeedView: UIView {  // used custom code snippet /createcustom
     }()
     
     
+   
+    
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -71,11 +74,10 @@ class NewsFeedView: UIView {  // used custom code snippet /createcustom
             collecitonView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collecitonView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collecitonView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        
-        
         ])
     }
     
+   
     
     
 }
