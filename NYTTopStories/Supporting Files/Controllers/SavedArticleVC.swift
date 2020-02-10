@@ -26,7 +26,19 @@ class SavedArticleVC: UIViewController {
     
     private var savedArticles = [Article]() {
         didSet {
+            savedArticleView.collectionView.reloadData()
             print("there are \(savedArticles.count) articles")
+            if savedArticles.isEmpty {
+                // setup our empty view on the collecito view background view
+                savedArticleView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "There are currently no saved articles. Start browsing by tapping on News icon.")
+                
+            }else{
+                // remove empty view from collection view background view
+                savedArticleView.collectionView.backgroundView = nil
+            }
+            
+            
+            
         }
     }
     
@@ -47,7 +59,7 @@ class SavedArticleVC: UIViewController {
         
         
         // register cell
-        savedArticleView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "savedArticleCell")
+        savedArticleView.collectionView.register(SavedArticleCell.self, forCellWithReuseIdentifier: "savedArticleCell")
     }
     
     
@@ -66,8 +78,12 @@ extension SavedArticleVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedArticleCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedArticleCell", for: indexPath) as? SavedArticleCell else {
+            fatalError("could not downcast to SavedArticleCell")
+        }
+        let savedArticle = savedArticles[indexPath.row]
         cell.backgroundColor = .systemBackground
+        cell.configureCell(for: savedArticle)
         return cell
     }
     
