@@ -83,7 +83,10 @@ extension SavedArticleVC: UICollectionViewDataSource {
         }
         let savedArticle = savedArticles[indexPath.row]
         cell.backgroundColor = .systemBackground
+        // Step 1: registering as the delegate object (need to create an extension)
+        // loads the data for what is saved in the SavedArticle cell Step 3
         cell.configureCell(for: savedArticle)
+        cell.delegate = self
         return cell
     }
     
@@ -107,6 +110,20 @@ extension SavedArticleVC: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //create a programatic segue
+        let article = savedArticles[indexPath.row]
+        let detailVC = ArticleDVC()
+        
+        //TODO: using intializers as opposed to injecting properties
+        detailVC.article = article
+        detailVC.dataPersistence = dataPersistence // need to pass data persistence over to DVC or data will be nil
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    
+    
+    
 }
 
 
@@ -119,12 +136,53 @@ extension SavedArticleVC: UICollectionViewDelegateFlowLayout {
 // if item gets saved or deleted, this function gets called
 extension SavedArticleVC: DataPersistenceDelegate {
     func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        print("item was saved")
+        
+        fetchSavedArticles() //refreshes the articles
     }
     
+    
+    // gets called when item gets deleted
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        print("item was deleted")
+        fetchSavedArticles()
     }
     
     
 }
+
+
+
+
+// conform to SaveArticleDelegate
+
+extension SavedArticleVC: SavedArticleCellDelegate {
+    func didSelectMoreButton(_ savedArticleCell: SavedArticleCell, article: Article) {
+        // creates an action sheet with options
+        print("didselectMOreButton: \(article.title)")
+        
+        // create an action sheet
+        // cancel action
+        // delete action
+        // post MVP shareAction
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in
+            self.deleteArticle(article)
+            
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true)
+    }
+    
+    private func deleteArticle(_ article: Article) {
+        guard let index = savedArticles.firstIndex(of: article) else {
+            return
+        }
+        do {
+            try dataPersistence.deleteItem(at: index)
+        } catch {
+            print("error deleting article: \(error)")
+        }
+    }
+}
+

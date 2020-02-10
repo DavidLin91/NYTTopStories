@@ -10,6 +10,7 @@ import UIKit
 
 
 // Step 1: custom protocol
+// create protocol
 protocol SavedArticleCellDelegate: AnyObject {
     func didSelectMoreButton(_ savedArticleCell: SavedArticleCell, article: Article)
 }
@@ -19,6 +20,7 @@ class SavedArticleCell: UICollectionViewCell {
     
     
     // Step 2: custom protocol
+    // create delegate to conform to delegate (step 3 happens where the action for saving occurs: @objc method)
     weak var delegate: SavedArticleCellDelegate?
     
     
@@ -65,7 +67,9 @@ class SavedArticleCell: UICollectionViewCell {
     }
     
     @objc private func moreButtonPressed(_sender: UIButton) {
-        print("button was pressed for article \(currentArticle.title)")  // set title in configure cell
+        // Step 3: custom protocl (step 4: savedArticleVC, set the info in the cellForItemAt)
+        // captures the data for the specific cell its clicked on
+        delegate?.didSelectMoreButton(self, article: currentArticle)
     }
     
     
@@ -97,6 +101,11 @@ class SavedArticleCell: UICollectionViewCell {
         currentArticle = savedArticle // associated the cell with its article
         articleTitle.text = savedArticle.title
     }
+    
+    
+    
+    
+    
     
 }
 

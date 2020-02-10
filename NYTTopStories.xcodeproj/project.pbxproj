@@ -27,6 +27,7 @@
 		63C2B56C23F1AC37009BC76F /* SavedArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2B56B23F1AC37009BC76F /* SavedArticleView.swift */; };
 		63C2B56E23F1B335009BC76F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2B56D23F1B335009BC76F /* EmptyView.swift */; };
 		63C2B57023F1BB61009BC76F /* SavedArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2B56F23F1BB61009BC76F /* SavedArticleCell.swift */; };
+		63C2B57223F1CDF3009BC76F /* SettingsVieww.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2B57123F1CDF3009BC76F /* SettingsVieww.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		63C2B56B23F1AC37009BC76F /* SavedArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleView.swift; sourceTree = "<group>"; };
 		63C2B56D23F1B335009BC76F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		63C2B56F23F1BB61009BC76F /* SavedArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleCell.swift; sourceTree = "<group>"; };
+		63C2B57123F1CDF3009BC76F /* SettingsVieww.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVieww.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				63C2B56F23F1BB61009BC76F /* SavedArticleCell.swift */,
 				63C2B56D23F1B335009BC76F /* EmptyView.swift */,
 				632555EF23EDD122003FB002 /* ArticleDetailView.swift */,
+				63C2B57123F1CDF3009BC76F /* SettingsVieww.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				635C6DDE23EC6C3800AA60E7 /* TopStoriesTabController.swift in Sources */,
 				63C2B56C23F1AC37009BC76F /* SavedArticleView.swift in Sources */,
 				632555EE23EDCB6A003FB002 /* ArticleDVC.swift in Sources */,
+				63C2B57223F1CDF3009BC76F /* SettingsVieww.swift in Sources */,
 				635C6DE923EC715B00AA60E7 /* NewFeedView.swift in Sources */,
 				63C2B57023F1BB61009BC76F /* SavedArticleCell.swift in Sources */,
 				635C6DEB23EC851000AA60E7 /* TopStory.swift in Sources */,

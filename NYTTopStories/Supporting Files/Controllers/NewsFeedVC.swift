@@ -10,7 +10,7 @@ import UIKit
 import DataPersistence
 
 class NewsFeedVC: UIViewController {
-
+    
     private let newsFeedView = NewsFeedView()    // setting view controller view to "NewsFeedView"
     
     
@@ -28,6 +28,12 @@ class NewsFeedVC: UIViewController {
         }
     }
     
+    // default value for sectionName
+    private var sectionName = "Technology"
+    
+    
+    
+    
     override func loadView() {
         view = newsFeedView
     }
@@ -42,11 +48,33 @@ class NewsFeedVC: UIViewController {
         
         // register a collection view cell for UICollectionViewDataSource
         newsFeedView.collecitonView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell")
-        
+    }
+    
+    
+    internal override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         fetchStories()
     }
     
     private func fetchStories(for section: String = "Technology") {
+        
+        // retrieve section name from UserDefaults
+        // typecast as? String from type Any
+        if let sectionName = UserDefaults.standard.object(forKey: UserKey.sectionName) as? String {
+            if sectionName != self.sectionName {    // if business == business, do not execute if
+                // we are looking at a new section
+                // make a new query
+                queryAPI(for: sectionName)
+                self.sectionName = sectionName
+            }
+        } else {
+            // use the default section name
+            queryAPI(for: sectionName)
+            
+        }
+    }
+    
+    private func queryAPI(for section: String) {
         NYTopStoriesAPIClient.fetchTopStories(for: section) { (result) in
             switch result {
             case .failure(let appError):
@@ -57,7 +85,7 @@ class NewsFeedVC: UIViewController {
         }
     }
     
-
+    
 }
 
 // gets data
