@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = TopStoriesTabController()
+        (window?.rootViewController as! UITabBarController).tabBar.tintColor = UIColor.green
         window?.makeKeyAndVisible()
     }
 

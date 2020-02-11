@@ -49,6 +49,7 @@ class TopStoriesTabController: UITabBarController {
         viewControllers = [UINavigationController(rootViewController: newsFeedVC),
                            UINavigationController(rootViewController: savedArticlesVC),
                            UINavigationController(rootViewController: settingsVC)]
+        
     }
     
     

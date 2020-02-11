@@ -48,6 +48,9 @@ class NewsFeedVC: UIViewController {
         
         // register a collection view cell for UICollectionViewDataSource
         newsFeedView.collecitonView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell")
+        
+        //setup search bar
+        newsFeedView.searchBar.delegate = self
     }
     
     
@@ -57,7 +60,6 @@ class NewsFeedVC: UIViewController {
     }
     
     private func fetchStories(for section: String = "Technology") {
-        
         // retrieve section name from UserDefaults
         // typecast as? String from type Any
         if let sectionName = UserDefaults.standard.object(forKey: UserKey.sectionName) as? String {
@@ -66,6 +68,8 @@ class NewsFeedVC: UIViewController {
                 // make a new query
                 queryAPI(for: sectionName)
                 self.sectionName = sectionName
+            } else {
+                queryAPI(for: sectionName)
             }
         } else {
             // use the default section name
@@ -75,12 +79,12 @@ class NewsFeedVC: UIViewController {
     }
     
     private func queryAPI(for section: String) {
-        NYTopStoriesAPIClient.fetchTopStories(for: section) { (result) in
+        NYTopStoriesAPIClient.fetchTopStories(for: section) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print("error fetching stories \(appError)")
             case .success(let articles):
-                self.newsArticles = articles
+                self?.newsArticles = articles
             }
         }
     }
@@ -125,14 +129,31 @@ extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
         //TODO: After assessment, we will be using initializers as dependency injection mechanism
         articleDVC.article = article
         
-        
-        
         // Step 3: Setting up data persistence and its delegate (step 4: SavedArticleVC)
         articleDVC.dataPersistence = dataPersistence // when you're passing data from VC to DVC (to save and pass changes)
         
         // segues and pushes to next view (make sure to add navigation controller to array in main Collection view controller)
         navigationController?.pushViewController(articleDVC, animated: true)
-        
-        
+    }
+    
+    func scrollViewDidScroll(_scrollView: UIScrollView) {
+        if newsFeedView.searchBar.isFirstResponder {
+            newsFeedView.searchBar.resignFirstResponder()
+        }
+    }
+}
+
+
+extension NewsFeedVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            // if text is empty, reload all the articles
+            fetchStories()
+            return
+        }
+        // filter articles based on searchText
+        newsArticles = newsArticles.filter{ $0.title.lowercased().contains(searchText.lowercased())
+            
+        }
     }
 }
