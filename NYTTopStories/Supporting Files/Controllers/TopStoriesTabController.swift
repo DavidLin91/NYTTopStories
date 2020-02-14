@@ -20,9 +20,8 @@ class TopStoriesTabController: UITabBarController {
     
     
     private lazy var newsFeedVC: NewsFeedVC = {
-        let viewController = NewsFeedVC()
+        let viewController = NewsFeedVC(dataPersistence)
         viewController.tabBarItem  = UITabBarItem(title: "News Feed", image: UIImage(systemName: "eyeglasses"), tag: 0)
-        viewController.dataPersistence = dataPersistence  // inject data persistence
         return viewController
     }()
     
@@ -30,10 +29,8 @@ class TopStoriesTabController: UITabBarController {
   //  Step 6:  setting up data persistence and its delegate
     
     private lazy var savedArticlesVC: SavedArticleVC = {
-        let viewController = SavedArticleVC()
+        let viewController = SavedArticleVC(dataPersistence)
         viewController.tabBarItem  = UITabBarItem(title: "Saved Articles", image: UIImage(systemName: "folder"), tag: 1)
-        viewController.dataPersistence = dataPersistence
-        viewController.dataPersistence.delegate = viewController
         return viewController
     }()
     

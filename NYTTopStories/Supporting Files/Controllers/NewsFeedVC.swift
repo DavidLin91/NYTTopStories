@@ -17,7 +17,7 @@ class NewsFeedVC: UIViewController {
     
     // Step 2: setting up data persistence and its delegate (step 3: extension: didSelectItemAt)
     // since we need an instance passed to the ArticleDVC, we delcare a dataPersistence here
-    public var dataPersistence: DataPersistence<Article>!
+    private var dataPersistence: DataPersistence<Article>
     
     // data for collection view
     private var newsArticles = [Article]() {
@@ -32,11 +32,21 @@ class NewsFeedVC: UIViewController {
     private var sectionName = "Technology"
     
     
+    // initializers
+    init(_ dataPersistence: DataPersistence<Article>) {
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func loadView() {
         view = newsFeedView
     }
+    
     
     
     override func viewDidLoad() {
@@ -125,12 +135,9 @@ extension NewsFeedVC: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let article = newsArticles[indexPath.row]
-        let articleDVC = ArticleDVC()
+        let articleDVC = ArticleDVC(dataPersistence, article: article)
         //TODO: After assessment, we will be using initializers as dependency injection mechanism
-        articleDVC.article = article
-        
-        // Step 3: Setting up data persistence and its delegate (step 4: SavedArticleVC)
-        articleDVC.dataPersistence = dataPersistence // when you're passing data from VC to DVC (to save and pass changes)
+
         
         // segues and pushes to next view (make sure to add navigation controller to array in main Collection view controller)
         navigationController?.pushViewController(articleDVC, animated: true)
